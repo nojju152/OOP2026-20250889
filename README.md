@@ -1,5 +1,5 @@
 # OOP2026
-### Homework1
+### Homework 1
 ```java
 public class pyramid {
 	public static void main(String[] args)
@@ -55,6 +55,8 @@ public class pyramid {
 }
 ```
 ![image](./image/homework1.png)
+
+### Homework 2
 ```java
 package Rho;
 
