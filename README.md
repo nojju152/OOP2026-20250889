@@ -54,8 +54,25 @@ public class pyramid {
     }
 }
 ```
-
-
-
-
 ![image](./image/homework1.png)
+```java
+package Rho;
+
+public class peebo {
+	public static void main(String[] args) {
+		int a = 1;
+		int b = 1;
+		int c = 0;
+		
+		System.out.print(a+" "+b);
+		for(int i = 0; i < 18; i++) {
+			c = a + b;
+			System.out.print(" "+c);
+			a = b;
+			b = c;
+	}
+}
+}
+```
+![image](./image/hw2.png)
+
