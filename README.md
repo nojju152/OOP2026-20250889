@@ -54,4 +54,4 @@ public class pyramid {
     }
 }
 
-![Alt homework11](./image/homework1.png)
+![image](./image/homework1.png)
