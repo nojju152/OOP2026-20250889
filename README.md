@@ -98,3 +98,20 @@ public class golden {
 ```
 ![image](./image/hw3.png)
 
+### Homework 4
+```java
+package Rho;
+
+public class gugudan {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 9; i++) {
+            for (int j = 1; j <= 9; j++) {
+                System.out.print(i + "*" + j + "=" + (i * j) + "  ");
+            }
+            System.out.println();
+        }
+}
+}
+```
+
+![image](./image/hw4.png)
