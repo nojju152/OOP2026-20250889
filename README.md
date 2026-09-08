@@ -78,3 +78,23 @@ public class peebo {
 ```
 ![image](./image/hw2.png)
 
+### Homework 3
+```java
+package Rho;
+
+public class golden {
+	public static void main(String[] args) {
+		float a=2;
+		float b=1;
+		float c;
+		for (int i=0; i<20; i++) {
+			System.out.print(" "+a / b);
+            c = a + b;
+            b = a;
+            a = c;				
+		}
+	}
+}
+```
+![image](./image/hw3.png)
+
