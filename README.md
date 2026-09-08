@@ -54,4 +54,5 @@ public class pyramid {
     }
 }
 
-![image](./image/homework1.png)
+### Homework2
+1234
