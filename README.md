@@ -1,7 +1,6 @@
-# Homework 1
-
-package Rho;
-
+# OOP2026
+### Homework1
+```java
 public class pyramid {
 	public static void main(String[] args)
     {
