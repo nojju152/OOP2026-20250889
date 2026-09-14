@@ -115,3 +115,23 @@ public class gugudan {
 ```
 
 ![image](./image/hw4.png)
+
+### Homework 5
+```java
+package Rho;
+
+public class pie {
+    public static void main(String[] args) {
+        int n = 100000000;
+        double pi = 0;
+
+        for (int k = 0; k < n; k++) {
+            pi += Math.pow(-1, k) / (2 * k + 1);
+        }
+
+        System.out.println(4 * pi);
+    }
+}
+```
+
+![image](./image/hw5.png)
