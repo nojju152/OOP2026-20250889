@@ -238,3 +238,52 @@ public class random {
 ```
 
 ![image](./image/hw8.png)
+
+05
+025
+0125
+00625
+003125
+0015625
+### Homework 9
+(1.75)_10 (1.11)_2  
+(1.625)_10 (1.101)_2
+(1.5625)_10 (1.1001)_2
+(1.875)_10 (1.111)_2
+(13.875)_10 (1101.111)_2
+(45.875)_10 (101101.111)_2
+(1.9)_10 (1.1110011001100...)_2
+(1.1)_10 (1.000110011001100...)_2
+
+### Homework 10
+```java
+package Rho;
+
+public class Histogram {
+
+	public static void main(String[] args) {
+		
+		int[] data = new int[100];
+		int[] histogram = new int[10];
+		
+		for (int i = 0; i < data.length; i++) {
+			data[i] = (int)(Math.random() * 100);
+		}
+		
+		for (int i = 0; i < data.length; i++) {
+			histogram[data[i] / 10]++;
+		}
+		
+		for (int i = 0; i < histogram.length; i++) {
+			System.out.printf("%d~%d\t", i * 10, i * 10 + 9);
+			
+			for (int j = 0; j < histogram[i]; j++) {
+				System.out.print("#");
+			}
+			
+			System.out.println();
+		}
+	}
+}
+```
+![image](./image/hw10.png)
