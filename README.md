@@ -1,4 +1,3 @@
-<img width="255" height="159" alt="image" src="https://github.com/user-attachments/assets/0d7a2603-43b6-49a3-ad2e-1ae07e25c80d" /># OOP2026
 ### Homework 1
 ```java
 public class pyramid {
