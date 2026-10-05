@@ -295,3 +295,96 @@ public class Histogram {
 }
 ```
 ![image](./image/hw10.png)
+
+# homework11
+
+```java
+
+public class HELLOWORLD {
+
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        int array_count;
+        if (args.length != 1)
+            return;
+        
+        array_count = Integer.parseInt(args[0]);
+        int[] arr = new int[array_count];
+        
+        for (int i = 0; i < array_count; i++) {
+            arr[i] = (int) (Math.random() * 100) + 1;
+        }
+        
+        for (int i = 0; i < array_count; i++) {
+            System.out.print(arr[i] + " ");  
+        }
+        System.out.println();
+        
+        double sum = 0;
+        for (int i = 0; i < array_count; i++) {
+            sum += arr[i];
+        }
+        System.out.printf("arithematic mean : = %f\n", sum / array_count);
+        
+        double prod = 1;
+        for (int i = 0; i < array_count; i++) {
+            prod *= arr[i];
+        }
+        System.out.printf("geometric mean   : = %f\n", Math.pow(prod, (double) 1. / array_count));
+        
+        double harmonic_sum = 0;
+        for (int i = 0; i < array_count; i++) {
+            harmonic_sum += 1.0 / arr[i];
+        }
+        System.out.printf("harmonic mean    : = %f\n", array_count / harmonic_sum);
+        
+        int[] sortedArr = arr.clone();
+        java.util.Arrays.sort(sortedArr);
+        double median;
+        if (array_count % 2 == 0) {
+            median = (sortedArr[array_count / 2 - 1] + sortedArr[array_count / 2]) / 2.0;
+        } else {
+            median = sortedArr[array_count / 2];
+        }
+        System.out.printf("median           : = %f\n", median);
+    }
+}
+
+```
+![image](./image/hw11.png)
+
+# homework13
+
+```java
+
+import java.util.Scanner;
+
+public class HELLOWORLD {
+public static void main(String[] args) {
+    int out;
+    while(true) {
+        Scanner scanner = new Scanner(System.in);
+        String inputString = scanner.nextLine();
+        System.out.println(inputString);
+        String[] arrOfStr = inputString.split(" ");
+        for ( int i=0; i<arrOfStr.length; i++) {
+            System.out.println(arrOfStr[i]);
+        }
+        if(arrOfStr[1].equals("+")) {
+            out = Integer.parseInt(arrOfStr[0])+Integer.parseInt(arrOfStr[2]);
+            System.out.println(out);
+        }
+        else if(arrOfStr[1].equals("-")) {
+            
+        }
+        else if(arrOfStr[1].equals("#")) {
+            
+        }
+        else if(arrOfStr[1].equals("/")) {
+            
+        }
+    }
+ }
+}
+```
+![image](./image/hw13.png)
