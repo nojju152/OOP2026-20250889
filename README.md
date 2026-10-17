@@ -359,32 +359,171 @@ public class HELLOWORLD {
 
 import java.util.Scanner;
 
-public class HELLOWORLD {
-public static void main(String[] args) {
-    int out;
-    while(true) {
+public class Main {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String inputString = scanner.nextLine();
-        System.out.println(inputString);
-        String[] arrOfStr = inputString.split(" ");
-        for ( int i=0; i<arrOfStr.length; i++) {
-            System.out.println(arrOfStr[i]);
-        }
-        if(arrOfStr[1].equals("+")) {
-            out = Integer.parseInt(arrOfStr[0])+Integer.parseInt(arrOfStr[2]);
-            System.out.println(out);
-        }
-        else if(arrOfStr[1].equals("-")) {
+        
+        while(scanner.hasNextLine()) {
+            String inputString = scanner.nextLine().trim();
             
-        }
-        else if(arrOfStr[1].equals("#")) {
+            if (inputString.isEmpty()) continue;
+            if (inputString.equalsIgnoreCase("exit")) {
+                break;
+            }
             
-        }
-        else if(arrOfStr[1].equals("/")) {
+            String[] arrOfStr = inputString.split(" "); 
             
+            try {
+                double result = 0;
+                
+                if (arrOfStr.length == 3) {
+                    double num1 = Double.parseDouble(arrOfStr[0]);
+                    String op1 = arrOfStr[1];
+                    double num2 = Double.parseDouble(arrOfStr[2]);
+                    
+                    result = calculate(num1, op1, num2);
+                    System.out.println("결과: " + result);
+                } 
+                else if (arrOfStr.length == 5) {
+                    double num1 = Double.parseDouble(arrOfStr[0]);
+                    String op1 = arrOfStr[1];
+                    double num2 = Double.parseDouble(arrOfStr[2]);
+                    String op2 = arrOfStr[3];
+                    double num3 = Double.parseDouble(arrOfStr[4]);
+                    
+                    // 왼쪽부터 차례대로 계산
+                    double tempResult = calculate(num1, op1, num2);
+                    result = calculate(tempResult, op2, num3);
+                    
+                    System.out.println("결과: " + result);
+                } else {
+                    System.out.println("에러- 형식 x");
+                }
+                
+            } catch (NumberFormatException e) {
+                System.out.println("에러- 숫자가 아닌 값");
+            } catch (Exception e) {
+                System.out.println("에러- 오류");
+            }
+        }
+        scanner.close();
+    }
+    
+    public static double calculate(double n1, String op, double n2) {
+        if (op.equals("#")) {
+            op = "*";
+        }
+        
+        switch (op) {
+            case "+":
+                return n1 + n2;
+            case "-":
+                return n1 - n2;
+            case "*":
+                return n1 * n2;
+            case "/":
+                if (n2 == 0) {
+                    System.out.println("오류- 0 나누기");
+                    return 0;
+                }
+                return n1 / n2;
+            default:
+                System.out.println("지원하지 않는 연산자:" + op);
+                return 0;
         }
     }
- }
 }
 ```
 ![image](./image/hw13.png)
+
+# homework14
+```Java
+package hello;
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class Maths {
+    public static void main(String[] args) {
+        int array_count, max_value, bin_size, display_scale, hist_size;
+  if(args.length !=4)
+   return;
+  array_count = Integer.parseInt(args[0]);
+  max_value = Integer.parseInt(args[1]);
+  bin_size = Integer.parseInt(args[2]);
+  display_scale = Integer.parseInt(args[3]);
+  hist_size = max_value/bin_size;
+
+  int[] arr = new int[array_count];
+  int[] hist = new int[hist_size];
+  for (int i=0; i<array_count; i++) {
+   arr[i] = (int) (Math.random()*max_value);
+  }
+  for (int i=0; i<array_count; i++) {
+   System.out.print(arr[i] + " ");
+  }
+  System.out.println();
+
+  for (int i=0; i<array_count; i++) {
+   hist[arr[i]/bin_size]++;
+  }
+  for (int i=0; i<hist_size; i++) {
+   int start = i * bin_size;
+   int end = start + bin_size -1;
+   if (end > max_value-1) end = max_value -1;
+   System.out.printf("%3d~%-3d ", start, end);
+
+   int stars = hist[i] / display_scale;
+   for (int j = 0; j < stars; j++) {
+    System.out.print("#");
+   }
+   System.out.println();
+  }
+  System.out.println();
+
+        for (int i = 0; i < array_count; i++) {
+            arr[i] = (int) (Math.random() * 100) + 1;
+        }
+
+        for (int i = 0; i < array_count; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+
+        double sum = 0;
+        for (int i = 0; i < array_count; i++) {
+            sum += arr[i];
+        }
+        double arithmetic = sum / array_count;
+
+        double prod = 1;
+        for (int i = 0; i < array_count; i++) {
+            prod *= arr[i];
+        }
+        double geometric = Math.pow(prod, 1.0 / array_count);
+
+        double invSum = 0;
+        for (int i = 0; i < array_count; i++) {
+            invSum += 1.0 / arr[i];
+        }
+        double harmonic = array_count / invSum;
+
+        int[] sorted = Arrays.copyOf(arr, array_count);
+        Arrays.sort(sorted);
+        double median;
+        if (array_count % 2 == 1) {
+            median = sorted[array_count / 2];
+        } else {
+            median = (sorted[array_count / 2 - 1] + sorted[array_count / 2]) / 2.0;
+        }
+
+        System.out.printf("arithmetic mean = %f\n", arithmetic);
+        System.out.printf("geometric mean = %f\n", geometric);
+        System.out.printf("harmonic mean = %f\n", harmonic);
+        System.out.printf("median = %f\n", median);
+
+    }
+}
+```
+![image](./image/hw14.png)
